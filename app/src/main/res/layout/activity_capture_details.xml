@@ -1,0 +1,92 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <ImageView
+        android:id="@+id/image_preview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"/>
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:layout_below="@id/image_preview"
+        android:background="#FFFFFF"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#000000"/>
+
+    <EditText
+        android:id="@+id/edit_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Colour"
+        android:layout_below="@id/edit_name"
+        android:background="#FFFFFF"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#000000"/>
+
+    <EditText
+        android:id="@+id/edit_movement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Movement"
+        android:layout_below="@id/edit_color"
+        android:background="#FFFFFF"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#000000"/>
+
+    <EditText
+        android:id="@+id/edit_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Year"
+        android:layout_below="@id/edit_movement"
+        android:background="#FFFFFF"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#000000"/>
+
+    <EditText
+        android:id="@+id/edit_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:layout_below="@id/edit_year"
+        android:background="#FFFFFF"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#000000"/>
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_price"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        android:background="#FFFFFF"
+        android:text="Submit"
+        android:textColor="#000000" />
+</RelativeLayout>

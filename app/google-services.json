@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "931730367098",
+    "project_id": "chronotracker-74276",
+    "storage_bucket": "chronotracker-74276.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931730367098:android:e345ad47e7d6caef5391c3",
+        "android_client_info": {
+          "package_name": "com.example.chronotracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz93iV8eHA_8xbLbMHjgGpFyQcdHfWy-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

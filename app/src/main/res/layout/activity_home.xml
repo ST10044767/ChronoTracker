@@ -1,0 +1,175 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".Home">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Menu Icon -->
+        <Button
+            android:id="@+id/menuBtn"
+            android:layout_width="38dp"
+            android:layout_height="30dp"
+            android:background="@drawable/menu"/>
+
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <!-- Add a spacer to push content to the right -->
+        </LinearLayout>
+
+        <!-- Notification Icon -->
+        <Button
+            android:id="@+id/notificationBtn"
+            android:layout_width="32dp"
+            android:layout_height="27dp"
+            android:background="@drawable/bell"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <!-- Search Icon -->
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_width="33dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/search" />
+
+        <!-- Profile Icon -->
+        <Button
+            android:id="@+id/profileBtn"
+            android:layout_width="32dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/profile" />
+
+    </LinearLayout>
+
+    <!-- Center Logo and Text -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_above="@id/bottomNavigation">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logo"
+            android:contentDescription="Logo"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#000000"
+        android:padding="16dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <!-- Home Icon -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="16dp">
+
+            <Button
+                android:id="@+id/homeBtn"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- com.example.chronotracker.Capture Icon -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="16dp">
+
+            <Button
+                android:id="@+id/captureBtn"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/camera" />
+
+            <TextView
+                android:id="@+id/captureBtnLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capture"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Collection Icon -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="16dp">
+
+            <Button
+                android:id="@+id/collectionBtn"
+                android:layout_width="51dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/collection" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Collection"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Achievement Icon -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="16dp">
+
+            <Button
+                android:id="@+id/achievementBtn"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/medal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Achievement"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

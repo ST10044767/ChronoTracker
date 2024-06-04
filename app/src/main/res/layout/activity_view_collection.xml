@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9000000"
+    android:name=".ViewCollection">
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="16dp"
+        android:contentDescription="Back" />
+
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="#EFEFEF"
+        android:hint="Search"
+        android:padding="8dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <ListView
+        android:id="@+id/watch_list"
+        android:layout_width="match_parent"
+        android:layout_height="623dp"
+        android:layout_below="@id/search_bar"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/button_background"
+        android:divider="@color/white"
+        android:dividerHeight="1dp" />
+</RelativeLayout>
