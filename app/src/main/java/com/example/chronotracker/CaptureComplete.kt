@@ -15,7 +15,7 @@ class CaptureCompleteActivity : AppCompatActivity() {
         // Display animation or image
         Handler(Looper.getMainLooper()).postDelayed({
             // Navigate back to HomeActivity after 7 seconds
-            val intent = Intent(this, Home::class.java)
+            val intent = Intent(this, Watches::class.java)
             startActivity(intent)
             finish()
         }, 7000)

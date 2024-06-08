@@ -19,13 +19,20 @@ class Watches : AppCompatActivity() {
     private lateinit var watchList: ArrayList<DocumentSnapshot>
     private lateinit var adapter: ArrayAdapter<String>
     private lateinit var selectedCategory: String
+    private lateinit var addWatchButton:Button
     private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_watches)
 
+        addWatchButton=findViewById(R.id.addWatchButton)
 
+        addWatchButton.setOnClickListener {
+            val intent1 =Intent(this, Capture::class.java)
+            startActivity(intent1)
+            finish()
+        }
         selectedCategory = intent.getStringExtra("category").toString()
         firestore = FirebaseFirestore.getInstance()
 
