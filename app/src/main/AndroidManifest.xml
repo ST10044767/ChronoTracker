@@ -23,22 +23,28 @@
         android:theme="@style/Theme.ChronoTracker"
         tools:targetApi="31">
         <activity
+            android:name=".Watches"
+            android:exported="false" />
+
+        <activity android:name=".AddCategory"
+            android:exported="false" />
+        <activity
             android:name=".Profile"
             android:exported="false" />
         <activity
             android:name=".com.example.chronotracker.GoalsActivity"
             android:exported="false" />
         <activity
-            android:name="WatchDetailsActivity"
+            android:name=".WatchDetailsActivity"
             android:exported="false" />
         <activity
-            android:name="ViewCollectionActivity"
+            android:name=".ViewCollectionActivity"
             android:exported="false" />
         <activity
             android:name=".CaptureCompleteActivity"
             android:exported="false" />
         <activity
-            android:name=".CaptureDetailsActivity"
+            android:name=".CaptureDetails"
             android:exported="false" />
         <activity
             android:name=".Capture"

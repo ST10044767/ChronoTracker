@@ -102,7 +102,7 @@ class Capture : AppCompatActivity() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
                     Log.d("CaptureActivity", "Photo capture succeeded: $savedUri")
-                    val intent = Intent(this@Capture, CaptureDetailsActivity::class.java).apply {
+                    val intent = Intent(this@Capture, CaptureDetails::class.java).apply {
                         putExtra("imageUri", savedUri)
                     }
                     startActivity(intent)

@@ -38,7 +38,7 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/watch_manufacturer"
+        android:id="@+id/watch_movement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/watch_color"
@@ -54,7 +54,7 @@
         android:id="@+id/watch_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/watch_manufacturer"
+        android:layout_below="@id/watch_movement"
         android:layout_marginTop="8dp"
         android:background="#333333"
         android:hint="Year: "

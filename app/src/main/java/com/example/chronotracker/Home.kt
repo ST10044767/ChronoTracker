@@ -1,4 +1,5 @@
 package com.example.chronotracker
+import com.example.chronotracker.AddCategory
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,33 +10,33 @@ import com.example.chronotracker.com.example.chronotracker.GoalsActivity
 
 class Home : AppCompatActivity() {
 
-    private lateinit var home: Button
+    private lateinit var addCategory: Button
     private lateinit var capture: Button
     private lateinit var collection: Button
     private lateinit var achievement: Button
     private lateinit var menu: Button
-    private lateinit var search: Button
+    ///private lateinit var search: Button
     private lateinit var notification: Button
     private lateinit var profile: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_home)
 
-        home = findViewById(R.id.homeBtn)
+        addCategory = findViewById(R.id.CategoryBtn)
         capture = findViewById(R.id.captureBtn)
         collection = findViewById(R.id.collectionBtn)
         achievement = findViewById(R.id.achievementBtn)
         menu = findViewById(R.id.menuBtn)
-        search = findViewById(R.id.searchBtn)
+        //search = findViewById(R.id.searchBtn)
         notification = findViewById(R.id.notificationBtn)
         profile = findViewById(R.id.profileBtn)
 
-        home.setOnClickListener {
-            val intent = Intent(this@Home, Home::class.java)
+        addCategory.setOnClickListener {
+            val intent = Intent(this, com.example.chronotracker.AddCategory::class.java)
             startActivity(intent)
-
-
+            finish()
         }
 
         capture.setOnClickListener {
