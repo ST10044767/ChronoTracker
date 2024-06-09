@@ -31,6 +31,7 @@ class LoginActivity : AppCompatActivity() {
 
         buttonLogin.setOnClickListener {
             loginUser()
+
         }
 
         textViewSignUp.setOnClickListener {
@@ -51,6 +52,12 @@ class LoginActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 Toast.makeText(this@LoginActivity, "Login successful", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@LoginActivity, Home::class.java))
+
+                //Adding email to the profile activity
+                val profileUsername = editTextEmail.text.toString()
+                val intent = Intent(this, Profile::class.java)
+                intent.putExtra("USER_EMAIL", profileUsername)
+                startActivity(intent)
             } else {
                 Toast.makeText(this@LoginActivity, "Authentication failed", Toast.LENGTH_SHORT).show()
             }
