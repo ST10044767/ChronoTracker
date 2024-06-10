@@ -7,7 +7,6 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
@@ -55,8 +54,6 @@ class Capture : AppCompatActivity() {
 
         captureButton.setOnClickListener {
             takePhoto()
-
-
         }
     }
 
@@ -102,10 +99,16 @@ class Capture : AppCompatActivity() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
                     Log.d("CaptureActivity", "Photo capture succeeded: $savedUri")
+
+                    // Get category name from intent
+                    val category = intent.getStringExtra("categoryName")
+
                     val intent = Intent(this@Capture, CaptureDetails::class.java).apply {
                         putExtra("imageUri", savedUri)
+                        putExtra("categoryName", category)
                     }
                     startActivity(intent)
+                    finish()
                 }
             }
         )

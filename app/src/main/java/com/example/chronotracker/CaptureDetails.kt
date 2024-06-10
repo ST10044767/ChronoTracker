@@ -4,6 +4,7 @@ package com.example.chronotracker
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -46,7 +47,9 @@ class CaptureDetails : AppCompatActivity() {
         imageUri?.let {
             imagePreview.setImageURI(it)
         }
-        val category = intent.getStringExtra("category")
+
+        // Get the category name from intent
+        val category = intent.getStringExtra("categoryName")
 
         // Button click listener
         buttonSubmit.setOnClickListener {
@@ -76,12 +79,12 @@ class CaptureDetails : AppCompatActivity() {
 
             val watch = Watch(name, color, movement, year, price, imageUri)
 
-            // Get the category name from intent
-            val categoryName = CategoryRepository.categoryName
-
             // Save watch details to Firestore
-            saveWatchToFirestore(watch, categoryName)
-
+            category?.let {
+                saveWatchToFirestore(watch, it)
+            } ?: run {
+                Toast.makeText(this, "Category is missing", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -96,20 +99,22 @@ class CaptureDetails : AppCompatActivity() {
             "imageUri" to watch.imageUri?.toString()
         )
 
-        // Generate a unique document ID for the watch
-        val watchDocument =
-            db.collection("categories").document(category).collection("watches").document()
+        val categoryRef = db.collection("categories").document(category)
+
+        // Document ID for the watch
+        val watchDocument = categoryRef.collection("watches").document()
 
         // Use the set method to save the watch to Firestore
         watchDocument.set(watchMap)
             .addOnSuccessListener {
                 Toast.makeText(this, "Watch saved successfully", Toast.LENGTH_SHORT).show()
-                // Navigate to Watches activity
+                // Navigate to CaptureCompleteActivity
                 val intent = Intent(this, CaptureCompleteActivity::class.java)
                 startActivity(intent)
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error saving watch: ${e.message}", Toast.LENGTH_SHORT).show()
+                Log.e("CaptureDetails", "Error saving watch", e)
             }
     }
 }

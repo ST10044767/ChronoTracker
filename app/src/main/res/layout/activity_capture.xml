@@ -8,9 +8,11 @@
 
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_width="349dp"
+        android:layout_height="561dp"
+        android:layout_weight="1" >
+
+    </androidx.camera.view.PreviewView>
 
     <Button
         android:id="@+id/captureButton"
@@ -25,4 +27,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
+
 </LinearLayout>

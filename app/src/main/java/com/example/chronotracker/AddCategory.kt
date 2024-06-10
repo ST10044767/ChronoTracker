@@ -18,6 +18,7 @@ class AddCategory : AppCompatActivity() {
     private lateinit var categoryEditText: EditText
     private lateinit var addCategoryButton: Button
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var backBtn:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +31,16 @@ class AddCategory : AppCompatActivity() {
         // Initialize Firestore instance
         firestore = FirebaseFirestore.getInstance()
 
-        // Set up the ListView
+        //  ListView
         val categoryListView: ListView = findViewById(R.id.categoryListView)
         categoryListView.adapter = adapter
 
         // Initialize UI components
         addCategoryButton = findViewById(R.id.addCategoryButton)
         categoryEditText = findViewById(R.id.categoryEditText)
+        backBtn=findViewById(R.id.backBtn3)
 
-        // Set click listener for the add category button
+        // listener for the add category button
         addCategoryButton.setOnClickListener {
             val categoryName = categoryEditText.text.toString().trim()
             if (categoryName.isNotEmpty()) {
@@ -46,14 +48,19 @@ class AddCategory : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Please enter a category name", Toast.LENGTH_SHORT).show()
             }
+            finish()
         }
 
+        //Back Button
+        backBtn.setOnClickListener {
+            val intent = Intent(this, Home::class.java)
+            startActivity(intent)
+            finish()
+        }
         // Set item click listener for the ListView
         categoryListView.setOnItemClickListener { _, _, position, _ ->
             val selectedCategory = categoryList[position]
-            val intent = Intent(this, Watches::class.java)
-            intent.putExtra("category", selectedCategory)
-            startActivity(intent)
+            navigateToWatches(selectedCategory)
         }
     }
 
@@ -69,7 +76,7 @@ class AddCategory : AppCompatActivity() {
             .addOnSuccessListener { result ->
                 categoryList.clear()
                 for (document in result) {
-                    document.getString("category name")?.let {
+                    document.getString("categoryName")?.let {
                         categoryList.add(it)
                     }
                 }
@@ -83,7 +90,7 @@ class AddCategory : AppCompatActivity() {
 
     private fun addCategory(categoryName: String) {
         val categoryDocument = firestore.collection("categories").document()
-        categoryDocument.set(mapOf("category name" to categoryName))
+        categoryDocument.set(mapOf("categoryName" to categoryName))
             .addOnSuccessListener {
                 categoryList.add(categoryName)
                 adapter.notifyDataSetChanged()
@@ -94,5 +101,11 @@ class AddCategory : AppCompatActivity() {
                 Toast.makeText(this, "Failed to add category", Toast.LENGTH_SHORT).show()
                 Log.e("AddCategory", "Error adding category", exception)
             }
+    }
+
+    private fun navigateToWatches(categoryName: String) {
+        val intent = Intent(this, Watches::class.java)
+        intent.putExtra("categoryName", categoryName)
+        startActivity(intent)
     }
 }

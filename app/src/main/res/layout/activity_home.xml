@@ -103,27 +103,6 @@
         </LinearLayout>
 
         <!-- com.example.chronotracker.Capture Icon -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginEnd="16dp">
-
-            <Button
-                android:id="@+id/captureBtn"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:background="@drawable/camera" />
-
-            <TextView
-                android:id="@+id/captureBtnLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Capture"
-                android:textSize="18dp"
-                android:textColor="#FFFFFF" />
-        </LinearLayout>
 
         <!-- Collection Icon -->
         <LinearLayout

@@ -14,10 +14,6 @@ class App : Application() {
         lateinit var context: Context
         private set
     }
-    //Declare custom 'Application' class in 'AndroidManifest.xml'
-    //<application:name=".App"
-    // ...
-    // >
-    // ...
-    // </application>
+
+
 }
