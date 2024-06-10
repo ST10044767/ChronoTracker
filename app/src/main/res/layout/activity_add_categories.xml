@@ -45,24 +45,38 @@
         tools:layout_editor_absoluteY="89dp" />
 
     <Button
+        android:id="@+id/deleteCategory"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/righteous"
+        android:text="Delete"
+        app:layout_constraintEnd_toStartOf="@+id/addCategoryButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categoryEditText" />
+
+    <Button
         android:id="@+id/addCategoryButton"
-        android:layout_width="313dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="48dp"
-        android:background="@drawable/button_background"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/righteous"
         android:text="Add Category"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deleteCategory"
         app:layout_constraintTop_toBottomOf="@id/categoryEditText" />
 
     <ListView
         android:id="@+id/categoryListView"
-        android:layout_width="411dp"
-        android:layout_height="521dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/button_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/deleteCategory" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
