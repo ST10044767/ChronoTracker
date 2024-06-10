@@ -19,6 +19,8 @@ class Watches : AppCompatActivity() {
     private lateinit var addWatchButton: Button
     private lateinit var firestore: FirebaseFirestore
 
+    private var watchCount = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_watches)
@@ -26,6 +28,10 @@ class Watches : AppCompatActivity() {
         // Initialize UI components
         addWatchButton = findViewById(R.id.addWatchButton)
         addWatchButton.setOnClickListener {
+            //Adding watch count for achievement system
+            watchCount++
+            AchievementRepository.checkAchievements(watchCount)
+
             val intent1 = Intent(this, Capture::class.java)
             startActivity(intent1)
             finish()
