@@ -7,7 +7,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.*
+import com.example.chronotracker.SignUpActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
@@ -15,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var editTextPassword: EditText
     private lateinit var buttonLogin: Button
     private lateinit var textViewSignUp: TextView
-    private lateinit var database: FirebaseDatabase
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         buttonLogin = findViewById(R.id.buttonLogin)
         textViewSignUp = findViewById(R.id.textViewSignUp)
 
-        database = FirebaseDatabase.getInstance()
+        mAuth = FirebaseAuth.getInstance()
 
         buttonLogin.setOnClickListener {
             loginUser()
@@ -46,30 +47,13 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        val usersRef = database.reference.child("users")
-        val query = usersRef.orderByChild("email").equalTo(email)
-
-        query.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (userSnapshot in snapshot.children) {
-                        val user = userSnapshot.getValue(User::class.java)
-                        if (user?.password == password) {
-                            Toast.makeText(this@LoginActivity, "Login successful", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@LoginActivity, Home::class.java))
-                            finish()
-                            return
-                        }
-                    }
-                    Toast.makeText(this@LoginActivity, "Invalid Password", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this@LoginActivity, "User not found", Toast.LENGTH_SHORT).show()
-                }
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(this@LoginActivity, "Login successful", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@LoginActivity, Home::class.java))
+            } else {
+                Toast.makeText(this@LoginActivity, "Authentication failed", Toast.LENGTH_SHORT).show()
             }
-
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@LoginActivity, "Database error: ${error.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
+        }
     }
 }

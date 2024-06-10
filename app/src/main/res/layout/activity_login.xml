@@ -3,62 +3,82 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="342dp"
-        android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="270dp"
-        android:background="@drawable/button_background"
-        android:fontFamily="@font/righteous"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="344dp"
-        android:layout_height="48dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="302dp"
-        android:background="@drawable/button_background"
-        android:fontFamily="@font/righteous"
-        android:hint="Email" />
-
-    <TextView
-        android:id="@+id/textViewSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="144dp"
-        android:fontFamily="@font/righteous"
-        android:text="Don't have an account? Sign Up"
-        android:textColor="@android:color/holo_blue_dark" />
-
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="273dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="201dp"
-        android:fontFamily="@font/righteous"
-        android:text="Login" />
+    android:gravity="center">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="342dp"
-        android:layout_height="172dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="352dp"
+        android:layout_height="169dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="38dp"
         app:srcCompat="@drawable/logo" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="389dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView2"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/righteous"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="LOGIN"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <FrameLayout
+        android:layout_width="373dp"
+        android:layout_height="366dp"
+        android:layout_below="@id/textView4"
+        android:layout_marginTop="41dp"
+        android:background="@drawable/translucent_box"
+        android:foregroundGravity="center">
+
+        <LinearLayout
+            android:layout_width="373dp"
+            android:layout_height="384dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="344dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/righteous"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="342dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/righteous"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/buttonLogin"
+                android:layout_width="273dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/righteous"
+                android:text="Login"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/textViewSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/righteous"
+                android:text="Don't have an account? Sign Up"
+                android:textColor="@android:color/holo_blue_dark" />
+        </LinearLayout>
+    </FrameLayout>
 </RelativeLayout>

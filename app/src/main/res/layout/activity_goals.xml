@@ -6,24 +6,30 @@
     android:background="#000000"
     android:padding="16dp">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="288dp"
+        android:layout_height="185dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="366dp"
+        android:layout_marginEnd="41dp"
+        android:foregroundGravity="center"
+        app:srcCompat="@drawable/logo" />
+
     <TextView
         android:id="@+id/goal_number_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="147dp"
+        android:fontFamily="@font/righteous"
+        android:foregroundGravity="center"
         android:hint="Set Goal (Number of Watches):"
         android:textColorHint="#FFFFFF"
         android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/goal_number_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/goal_number_label"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="3dp"
-        android:hint="Enter number"
-        android:inputType="number"
-        android:textColorHint="#F6F6F6" />
 
     <TextView
         android:id="@+id/goal_watch_label"
@@ -31,31 +37,28 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/goal_number_input"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="82dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="47dp"
+        android:fontFamily="@font/righteous"
+        android:foregroundGravity="center"
         android:hint="Set Goal (Next Watch to Collect):"
         android:textColorHint="#E1DDDD"
         android:textSize="18sp" />
 
     <EditText
         android:id="@+id/goal_watch_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="385dp"
+        android:layout_height="47dp"
         android:layout_below="@id/goal_watch_label"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="9dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/righteous"
+        android:foregroundGravity="center"
         android:hint="Enter watch model/brand"
-        android:textColorHint="#F6F6F6" />
-
-    <Button
-        android:id="@+id/save_goal_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/goal_watch_input"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="258dp"
-        android:text="Save Goal" />
+        android:textColorHint="#000000" />
 
     <TextView
         android:id="@+id/current_goals"
@@ -64,17 +67,54 @@
         android:layout_below="@id/save_goal_button"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="106dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="76dp"
+        android:fontFamily="@font/righteous"
+        android:foregroundGravity="center"
         android:textColorHint="#FFFFFF"
         android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="352dp"
-        android:layout_height="232dp"
+    <EditText
+        android:id="@+id/goal_number_input"
+        android:layout_width="378dp"
+        android:layout_height="37dp"
+        android:layout_below="@id/goal_number_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/righteous"
+        android:foregroundGravity="center"
+        android:hint="Enter number"
+        android:inputType="number"
+        android:textColorHint="#000000" />
+
+    <Button
+        android:id="@+id/save_goal_button"
+        android:layout_width="309dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/goal_watch_input"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="278dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/righteous"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="Save Goal" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="248dp"
-        app:srcCompat="@drawable/logo" />
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="79dp"
+        android:fontFamily="@font/righteous"
+        android:text="Goals"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
 </RelativeLayout>

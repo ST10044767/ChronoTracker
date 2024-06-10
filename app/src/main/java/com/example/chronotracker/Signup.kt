@@ -7,7 +7,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.FirebaseDatabase
+import com.example.chronotracker.R
+import com.google.firebase.auth.FirebaseAuth
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -15,8 +16,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var editTextPassword: EditText
     private lateinit var buttonSignUp: Button
     private lateinit var textViewLogin: TextView
-    private lateinit var editUsername: EditText
-    private lateinit var database: FirebaseDatabase
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,9 +26,8 @@ class SignUpActivity : AppCompatActivity() {
         editTextPassword = findViewById(R.id.editTextPassword)
         buttonSignUp = findViewById(R.id.buttonSignUp)
         textViewLogin = findViewById(R.id.textViewLogin)
-        editUsername = findViewById(R.id.editUsername)
 
-        database = FirebaseDatabase.getInstance()
+        mAuth = FirebaseAuth.getInstance()
 
         buttonSignUp.setOnClickListener {
             registerUser()
@@ -42,18 +41,13 @@ class SignUpActivity : AppCompatActivity() {
     private fun registerUser() {
         val email = editTextEmail.text.toString().trim()
         val password = editTextPassword.text.toString().trim()
-        val username = editUsername.text.toString().trim()
 
-        if (email.isEmpty() || password.isEmpty() || username.isEmpty()) {
+        if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this@SignUpActivity, "Please enter all the details", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val userId = database.reference.push().key ?: return
-
-        val user = User(username, email, password)
-
-        database.reference.child("users").child(userId).setValue(user).addOnCompleteListener { task ->
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Toast.makeText(this@SignUpActivity, "Registration successful", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
@@ -63,5 +57,3 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 }
-
-
