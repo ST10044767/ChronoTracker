@@ -48,13 +48,13 @@ class Home : AppCompatActivity() {
         collection.setOnClickListener {
             val intent = Intent(Intent(this@Home,ViewCollectionActivity::class.java))
             startActivity(intent)
-
+            finish()
         }
 
         achievement.setOnClickListener {
             val intent = Intent(this@Home, GoalsActivity::class.java)
             startActivity(intent)
-
+            finish()
         }
 
     }

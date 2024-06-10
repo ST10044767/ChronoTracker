@@ -5,11 +5,10 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
-class WatchDetailsActivity : AppCompatActivity() {
 
+class WatchDetailsActivity : AppCompatActivity() {
 
     private lateinit var watchImage: ImageView
     private lateinit var watchName: TextView
@@ -23,7 +22,6 @@ class WatchDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_watch_details)
 
-
         firestore = FirebaseFirestore.getInstance()
 
         watchImage = findViewById(R.id.watch_image)
@@ -33,27 +31,38 @@ class WatchDetailsActivity : AppCompatActivity() {
         watchYear = findViewById(R.id.watch_year)
         watchPrice = findViewById(R.id.watch_price)
 
-        val watchId = intent.getStringExtra("watchId").toString()
+        val watchId = intent.getStringExtra("watches") ?: return
+        val categoryName = intent.getStringExtra("categoryName") ?: return
 
         // Fetch watch details from Firestore
-        firestore.collection("watches").document(watchId)
+        firestore.collection("categories").document(categoryName).collection("watches").document(watchId)
             .get()
             .addOnSuccessListener { document ->
                 if (document != null) {
                     val watch = document.toObject(Watch::class.java)
                     watch?.let {
-                        Picasso.get().load(it.imageUri).into(watchImage)
-                        watchName.text = "name: ${it.name}"
+                        val imageUri = it.imageUri
+                        if (!imageUri.isNullOrEmpty()) {
+                            Picasso.get().load(Uri.parse(imageUri.toString())).into(watchImage)
+                        } else {
+                            // Set a placeholder image or handle the absence of image URI
+                            watchImage.setImageResource(R.drawable.button_background) // Ensure placeholder_image exists in your drawable resources
+                        }
+
+                        watchName.text = "Name: ${it.name}"
                         watchColor.text = "Color: ${it.color}"
                         watchMovement.text = "Movement: ${it.movement}"
                         watchYear.text = "Year: ${it.year}"
                         watchPrice.text = "Price: $${it.price}"
-
                     }
                 }
             }
-            .addOnFailureListener {
-
+            .addOnFailureListener { exception ->
+                println("Error getting document: $exception")
             }
     }
+}
+
+private fun Uri?.isNullOrEmpty(): Boolean {
+    return this == null || this.toString().isEmpty()
 }
