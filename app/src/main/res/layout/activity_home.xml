@@ -17,7 +17,7 @@
         <Button
             android:id="@+id/menuBtn"
             android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_height="30dp"
             android:background="@drawable/menu"/>
 
 
@@ -34,8 +34,8 @@
         <!-- Notification Icon -->
         <Button
             android:id="@+id/notificationBtn"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="32dp"
+            android:layout_height="27dp"
             android:background="@drawable/bell"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -44,8 +44,8 @@
         <!-- Profile Icon -->
         <Button
             android:id="@+id/profileBtn"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="32dp"
+            android:layout_height="31dp"
             android:layout_marginStart="16dp"
             android:background="@drawable/profile" />
 
@@ -80,7 +80,7 @@
         android:layout_alignParentBottom="true"
         android:gravity="center">
 
-        <!-- Category Icon -->
+        <!-- Home Icon -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,14 +90,13 @@
 
             <Button
                 android:id="@+id/CategoryBtn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/search" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
                 android:text="Category"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
@@ -112,15 +111,14 @@
 
             <Button
                 android:id="@+id/captureBtn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/camera" />
 
             <TextView
                 android:id="@+id/captureBtnLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
                 android:text="Capture"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
@@ -135,14 +133,13 @@
 
             <Button
                 android:id="@+id/collectionBtn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="51dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/collection" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
                 android:text="Collection"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
@@ -157,15 +154,14 @@
 
             <Button
                 android:id="@+id/achievementBtn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/medal" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="20dp"
                 android:text="Goals"
                 android:textColor="#FFFFFF" />
         </LinearLayout>

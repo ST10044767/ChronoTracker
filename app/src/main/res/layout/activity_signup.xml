@@ -6,23 +6,39 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/editUsername"
+        android:layout_width="387dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="321dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/righteous"
+        android:hint="Username"
+        android:textSize="16sp" />
+
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="378dp"
+        android:layout_width="387dp"
         android:layout_height="45dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="285dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="386dp"
         android:background="@drawable/button_background"
         android:hint="Email" />
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="373dp"
+        android:layout_width="396dp"
         android:layout_height="45dp"
+        android:layout_alignParentStart="false"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="295dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="210dp"
         android:background="@drawable/button_background"
         android:hint="Password"
         android:inputType="textPassword" />
@@ -33,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="173dp"
+        android:layout_marginBottom="107dp"
         android:text="Sign Up" />
 
     <TextView
@@ -43,8 +59,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="95dp"
-        android:layout_marginBottom="121dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginBottom="65dp"
         android:text="Already have an account? Login"
         android:textColor="@android:color/holo_blue_dark" />
 

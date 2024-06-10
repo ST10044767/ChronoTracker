@@ -1,3 +1,4 @@
+// Import statements
 package com.example.chronotracker
 
 import android.content.Intent
@@ -11,8 +12,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
+// Class definition
 class CaptureDetails : AppCompatActivity() {
 
+    // Views
     private lateinit var imagePreview: ImageView
     private lateinit var editName: EditText
     private lateinit var editColor: EditText
@@ -21,12 +24,15 @@ class CaptureDetails : AppCompatActivity() {
     private lateinit var editPrice: EditText
     private lateinit var buttonSubmit: Button
 
+    // Firebase
     private val db = Firebase.firestore
 
+    // onCreate method
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_capture_details)
 
+        // Initialize views
         imagePreview = findViewById(R.id.image_preview)
         editName = findViewById(R.id.edit_name)
         editColor = findViewById(R.id.edit_color)
@@ -35,11 +41,14 @@ class CaptureDetails : AppCompatActivity() {
         editPrice = findViewById(R.id.edit_price)
         buttonSubmit = findViewById(R.id.button_submit)
 
+        // Set image preview if available
         val imageUri = intent.getParcelableExtra<Uri>("imageUri")
         imageUri?.let {
             imagePreview.setImageURI(it)
         }
+        val category = intent.getStringExtra("category")
 
+        // Button click listener
         buttonSubmit.setOnClickListener {
             val name = editName.text.toString()
             val color = editColor.text.toString()
@@ -47,6 +56,7 @@ class CaptureDetails : AppCompatActivity() {
             val yearString = editYear.text.toString()
             val priceString = editPrice.text.toString()
 
+            // Validate input fields
             if (name.isBlank() || color.isBlank() || movement.isBlank() || yearString.isBlank() || priceString.isBlank()) {
                 Toast.makeText(this, "All fields must be filled out", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -56,29 +66,27 @@ class CaptureDetails : AppCompatActivity() {
             val price = priceString.toDoubleOrNull()
 
             if (year == null || price == null) {
-                Toast.makeText(this, "Year must be an integer and Price must be a valid number", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Year must be an integer and Price must be a valid number",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
 
-            val watch = Watch(
-                name = name,
-                color = color,
-                movement = movement,
-                year = year,
-                price = price,
-                imageUri = imageUri
-            )
+            val watch = Watch(name, color, movement, year, price, imageUri)
 
-            saveWatchToFirestore(watch)
+            // Get the category name from intent
+            val categoryName = CategoryRepository.categoryName
+
+            // Save watch details to Firestore
+            saveWatchToFirestore(watch, categoryName)
+
         }
     }
 
-    private fun saveWatchToFirestore(watch: Watch) {
-        val category = intent.getStringExtra("name") ?: run {
-            Toast.makeText(this, "Category is missing", Toast.LENGTH_SHORT).show()
-            return
-        }
-
+    // Function to save watch details to Firestore
+    private fun saveWatchToFirestore(watch: Watch, category: String) {
         val watchMap = hashMapOf(
             "name" to watch.name,
             "color" to watch.color,
@@ -88,11 +96,16 @@ class CaptureDetails : AppCompatActivity() {
             "imageUri" to watch.imageUri?.toString()
         )
 
-        db.collection("categories").document(category).collection("watches").add(watchMap)
+        // Generate a unique document ID for the watch
+        val watchDocument =
+            db.collection("categories").document(category).collection("watches").document()
+
+        // Use the set method to save the watch to Firestore
+        watchDocument.set(watchMap)
             .addOnSuccessListener {
                 Toast.makeText(this, "Watch saved successfully", Toast.LENGTH_SHORT).show()
+                // Navigate to Watches activity
                 val intent = Intent(this, CaptureCompleteActivity::class.java)
-                intent.putExtra("Watch", watch)
                 startActivity(intent)
             }
             .addOnFailureListener { e ->

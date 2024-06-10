@@ -34,6 +34,9 @@ dependencies {
     implementation ("androidx.camera:camera-view:1.0.0-alpha31")
     implementation ("androidx.camera:camera-extensions:1.0.0-alpha31")
     implementation ("com.squareup.picasso:picasso:2.71828")
+    implementation ("com.airbnb.android:lottie:4.2.2")
+
+
 }
 
 
