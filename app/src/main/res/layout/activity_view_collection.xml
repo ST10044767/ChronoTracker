@@ -55,15 +55,13 @@
     </ScrollView>
 
 
-    <ImageButton
-        android:id="@+id/backBtn4"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+    <Button
+        android:id="@+id/backBtn9"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/baseline_arrow_back_24"
-        android:backgroundTint="@color/black"
-        app:tint="#FFFFFFFF" />
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/backrrow" />
 </RelativeLayout>
