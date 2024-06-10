@@ -31,6 +31,7 @@ class LoginActivity : AppCompatActivity() {
 
         buttonLogin.setOnClickListener {
             loginUser()
+
         }
 
         textViewSignUp.setOnClickListener {
@@ -51,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 Toast.makeText(this@LoginActivity, "Login successful", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@LoginActivity, Home::class.java))
+
             } else {
                 Toast.makeText(this@LoginActivity, "Authentication failed", Toast.LENGTH_SHORT).show()
             }
