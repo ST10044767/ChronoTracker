@@ -8,6 +8,13 @@
     android:background="#000000"
     tools:context=".AddCategory">
 
+    <Button
+        android:id="@+id/backBtn5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/backrrow"
+        tools:layout_editor_absoluteY="11dp" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -16,27 +23,28 @@
         android:fontFamily="@font/righteous"
         android:text="Add Category"
         android:textColor="#FBFAFA"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.543"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <SearchView
         android:id="@+id/categorySearchView"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="366dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/button_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView" />
 
     <EditText
         android:id="@+id/categoryEditText"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="375dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/button_background"
         android:fontFamily="@font/righteous"
         android:gravity="center"
