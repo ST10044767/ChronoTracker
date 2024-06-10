@@ -12,7 +12,7 @@ class Home : AppCompatActivity() {
 
     private lateinit var addCategory: Button
 
-    private lateinit var collection: Button
+  //  private lateinit var collection: Button
     private lateinit var achievement: Button
     private lateinit var menu: Button
 
@@ -26,7 +26,7 @@ class Home : AppCompatActivity() {
 
         addCategory = findViewById(R.id.CategoryBtn)
         //capture = findViewById(R.id.captureBtn)
-        collection = findViewById(R.id.collectionBtn)
+      ///  collection = findViewById(R.id.collectionBtn)
         achievement = findViewById(R.id.achievementBtn)
         menu = findViewById(R.id.menuBtn)
         //search = findViewById(R.id.searchBtn)
@@ -45,11 +45,11 @@ class Home : AppCompatActivity() {
 
 
 
-        collection.setOnClickListener {
-            val intent = Intent(Intent(this@Home,ViewCollectionActivity::class.java))
-            startActivity(intent)
-            finish()
-        }
+       // collection.setOnClickListener {
+         //   val intent = Intent(Intent(this@Home,ViewCollectionActivity::class.java))
+         //   startActivity(intent)
+       //     finish()
+    //    }
 
         achievement.setOnClickListener {
             val intent = Intent(this@Home, GoalsActivity::class.java)
