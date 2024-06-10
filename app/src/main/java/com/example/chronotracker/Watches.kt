@@ -2,9 +2,11 @@ package com.example.chronotracker
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -69,4 +71,29 @@ class Watches : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        // Load categories each time the activity resumes
+        loadWatches()
+    }
+private fun loadWatches() {
+    firestore.collection("watches")
+        .whereEqualTo("category", selectedCategory)
+        .get()
+        .addOnSuccessListener { documents ->
+            watchList.clear()
+            for (document in documents) {
+                watchList.add(document)
+                document.getString("name")?.let {
+                    adapter.add(it)
+                }
+            }
+            adapter.notifyDataSetChanged()
+        }
+        .addOnFailureListener { exception ->
+            Toast.makeText(this, "Failed to load watches", Toast.LENGTH_SHORT).show()
+            Log.e("Watches", "Error loading watches", exception)
+        }
+}
 }
