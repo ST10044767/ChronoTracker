@@ -13,28 +13,52 @@
         android:layout_margin="16dp"
         android:contentDescription="Back" />
 
-    <EditText
+    <SearchView
         android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="393dp"
+        android:layout_height="35dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="69dp"
         android:background="@drawable/button_background"
         android:backgroundTint="#EFEFEF"
-        android:hint="Search"
-        android:padding="8dp"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp" />
+        android:padding="8dp" />
 
     <ListView
         android:id="@+id/watch_list"
         android:layout_width="match_parent"
-        android:layout_height="623dp"
+        android:layout_height="587dp"
         android:layout_below="@id/search_bar"
-        android:layout_marginTop="26dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="-4dp"
         android:background="@drawable/button_background"
         android:divider="@color/white"
         android:dividerHeight="1dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="567dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="164dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/backBtn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp" />
 </RelativeLayout>

@@ -42,19 +42,18 @@ class WatchDetailsActivity : AppCompatActivity() {
                 if (document != null) {
                     val watch = document.toObject(Watch::class.java)
                     watch?.let {
-                        watchName.text = it.name
+                        Picasso.get().load(it.imageUri).into(watchImage)
+                        watchName.text = "name: ${it.name}"
                         watchColor.text = "Color: ${it.color}"
                         watchMovement.text = "Movement: ${it.movement}"
                         watchYear.text = "Year: ${it.year}"
                         watchPrice.text = "Price: $${it.price}"
 
-                        // Load image using Picasso library
-                        Picasso.get().load(it.imageUri).into(watchImage)
                     }
                 }
             }
             .addOnFailureListener {
-                // Handle failures
+
             }
     }
 }

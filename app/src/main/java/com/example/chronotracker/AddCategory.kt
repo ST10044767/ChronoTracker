@@ -23,19 +23,22 @@ class AddCategory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_categories)
 
+        // Initialize the category list and adapter
         categoryList = ArrayList()
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, categoryList)
 
+        // Initialize Firestore instance
         firestore = FirebaseFirestore.getInstance()
 
+        // Set up the ListView
         val categoryListView: ListView = findViewById(R.id.categoryListView)
         categoryListView.adapter = adapter
 
+        // Initialize UI components
         addCategoryButton = findViewById(R.id.addCategoryButton)
         categoryEditText = findViewById(R.id.categoryEditText)
 
-        loadCategories()
-
+        // Set click listener for the add category button
         addCategoryButton.setOnClickListener {
             val categoryName = categoryEditText.text.toString().trim()
             if (categoryName.isNotEmpty()) {
@@ -45,12 +48,19 @@ class AddCategory : AppCompatActivity() {
             }
         }
 
+        // Set item click listener for the ListView
         categoryListView.setOnItemClickListener { _, _, position, _ ->
             val selectedCategory = categoryList[position]
             val intent = Intent(this, Watches::class.java)
             intent.putExtra("category", selectedCategory)
             startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Load categories each time the activity resumes
+        loadCategories()
     }
 
     private fun loadCategories() {
@@ -72,8 +82,8 @@ class AddCategory : AppCompatActivity() {
     }
 
     private fun addCategory(categoryName: String) {
-        firestore.collection("categories")
-            .add(mapOf("name" to categoryName))
+        val categoryDocument = firestore.collection("categories").document()
+        categoryDocument.set(mapOf("category name" to categoryName))
             .addOnSuccessListener {
                 categoryList.add(categoryName)
                 adapter.notifyDataSetChanged()

@@ -7,34 +7,27 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="378dp"
-        android:layout_height="45dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="285dp"
-        android:background="@drawable/button_background"
-        android:hint="Email" />
-
-    <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="373dp"
-        android:layout_height="45dp"
+        android:layout_width="342dp"
+        android:layout_height="55dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="295dp"
+        android:layout_marginBottom="270dp"
         android:background="@drawable/button_background"
+        android:fontFamily="@font/righteous"
         android:hint="Password"
         android:inputType="textPassword" />
 
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="344dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="176dp"
-        android:text="Login" />
+        android:layout_marginTop="302dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/righteous"
+        android:hint="Email" />
 
     <TextView
         android:id="@+id/textViewSignUp"
@@ -42,18 +35,30 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="144dp"
+        android:fontFamily="@font/righteous"
         android:text="Don't have an account? Sign Up"
         android:textColor="@android:color/holo_blue_dark" />
 
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="201dp"
+        android:fontFamily="@font/righteous"
+        android:text="Login" />
+
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="373dp"
-        android:layout_height="234dp"
+        android:layout_width="342dp"
+        android:layout_height="172dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="19dp"
         android:layout_marginTop="38dp"
         app:srcCompat="@drawable/logo" />
+
 </RelativeLayout>
